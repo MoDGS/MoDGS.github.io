@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="MoDGS">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MoDGS</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <!-- <script src="./static/js/lqm.js"></script> -->
+  <script src="./static/js/video_comparison.js" defer></script>
+
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+
+            <h1 class="title is-1 publication-title">MoDGS: Dynamic Gaussian Splatting from Causually-captured Monocular
+              Videos</h1>
+            <!-- <h3 class="title is-1 publication-title">Anonymous Authors</h3> -->
+            <div class="is-size-4 publication-authors">
+
+              <!-- <span class="author-block">
+                Anonymous Authors</span> -->
+
+
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="static/paper.pdf" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+
+                    <svg class="svg-inline--fa fa-youtube fa-w-18" aria-hidden="true" focusable="false"
+                      data-prefix="fab" data-icon="youtube" role="img" xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 576 512" data-fa-i2svg="">
+                      <path fill="currentColor"
+                        d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z">
+                      </path>
+                    </svg>
+                    <span>Video [coming soon]</span>
+                  </a>
+                </span>
+                <!--
+                <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+-->
+                <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark" title="Code">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code and data [coming soon]</span>
+                  </a>
+                </span>
+
+                <!--
+                <span class="link-block">
+                  <a class="external-link button is-normal is-rounded is-dark" title="Coming soon!" disabled>
+                    <span class="icon">
+                        <i class="far fa-images"></i>
+                    </span>
+                    <span>Data</span>
+                    </a>
+                  </span> -->
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- <section class="section">
+    <div class="container is-max-desktop">
+      <video id="teaser" width="100%" playsinline  autoplay loop muted>
+        <source src="static/videos/teaser.mp4" type="video/mp4" />
+      </video>
+      <script>
+        document.getElementById('teaser').play();
+      </script>
+    </div>
+  </section> -->
+
+  <!-- resutl on DyNeRF dataset -->
+  <!-- resutl on DyNeRF dataset -->
+  <!-- resutl on DyNeRF dataset -->
+  <!-- resutl on DyNeRF dataset -->
+  <section>
+    <!-- </div> -->
+    <h2 style="text-align: center;" class="is-size-4">Given a casually captured monocular video (even static), </h2>
+    <h2 style="text-align: center;" class="is-size-4">MoDGS is able to learn a dynamic Gaussian Splatting representation
+      for novel-view synthesis</h2>
+    <div class="container is-max-desktop">
+      <!-- <h2 class="title is-4">Results on DyNeRF dataset</h2> -->
+      <!-- <p>
+          Here we display results of our MoDGS On DyNeRF dataset. <br><br>
+          Change the scene by clicking the button below:
+        </p> -->
+    </div>
+
+    <!-- <section class="hero is-light is-small"> -->
+    <div class="hero-body">
+      <!-- <div class="column is-full-width has-text-centered"> -->
+      <!-- <div class="container"> -->
+      <div id="results-carousel" class="carousel results-carousel">
+
+        <!-- cofffee -->
+        <div class="item item-steve video-grid">
+          <div class="video-description0">input video</div>
+          <div class="video-description1">renderings</div>
+          <div class="video-description2">estimated monocular depth</div>
+          <div class="video-description3">rendered depth</div>
+
+
+          <!-- <div class="video-description0">input video</div> -->
+          <video poster="" id="steve gt_rgb" autoplay muted loop playsinline height="100%">
+            <source src="static\combined_Video_results\dynerf\coffee_martini_4in1_output.mp4" type="video/mp4">
+          </video>
+        </div>
+
+
+        <!-- cook_spinach -->
+        <div class="item item-steve video-grid">
+          <div class="video-description0">input video</div>
+          <div class="video-description1">renderings</div>
+          <div class="video-description2">estimated monocular depth</div>
+          <div class="video-description3">rendered depth</div>
+
+
+          <!-- <div class="video-description0">input video</div> -->
+          <video poster="" id="steve gt_rgb" autoplay muted loop playsinline height="100%">
+            <source src="static\combined_Video_results\dynerf\cook_spinach_4in1_output.mp4" type="video/mp4">
+          </video>
+        </div>
+        <!-- cut-Roasted beef  -->
+        <div class="item item-steve video-grid">
+          <div class="video-description0">input video</div>
+          <div class="video-description1">renderings</div>
+          <div class="video-description2">estimated monocular depth</div>
+          <div class="video-description3">rendered depth</div>
+
+
+          <!-- <div class="video-description0">input video</div> -->
+          <video poster="" id="steve gt_rgb" autoplay muted loop playsinline height="100%">
+            <source src="static\combined_Video_results\dynerf\cut_roasted_beef_4in1_output.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- flame salmon  -->
+        <div class="item item-steve video-grid">
+          <div class="video-description0">input video</div>
+          <div class="video-description1">renderings</div>
+          <div class="video-description2">estimated monocular depth</div>
+          <div class="video-description3">rendered depth</div>
+          <!-- <div class="video-description0">input video</div> -->
+          <video poster="" id="steve gt_rgb" autoplay muted loop playsinline height="100%">
+            <source src="static\combined_Video_results\dynerf\flame_salmon_4in1_output.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- flame steak  -->
+        <div class="item item-steve video-grid">
+          <div class="video-description0">input video</div>
+          <div class="video-description1">renderings</div>
+          <div class="video-description2">estimated monocular depth</div>
+          <div class="video-description3">rendered depth</div>
+
+
+          <!-- <div class="video-description0">input video</div> -->
+          <video poster="" id="steve gt_rgb" autoplay muted loop playsinline height="100%">
+            <source src="static\combined_Video_results\dynerf\flame_steak_4in1_output.mp4" type="video/mp4">
+          </video>
+        </div>
+        <!-- sear steak  -->
+        <div class="item item-steve video-grid">
+          <div class="video-description0">input video</div>
+          <div class="video-description1">renderings</div>
+          <div class="video-description2">estimated monocular depth</div>
+          <div class="video-description3">rendered depth</div>
+
+
+          <!-- <div class="video-description0">input video</div> -->
+          <video poster="" id="steve gt_rgb" autoplay muted loop playsinline height="100%">
+            <source src="static\combined_Video_results\dynerf\sear_steak_4in1_output.mp4" type="video/mp4">
+          </video>
+        </div>
+
+
+
+      </div>
+
+    </div>
+    </div>
+  </section>
+
+
+
+  <!-- Abstract -->
+  <!-- Abstract -->
+  <!-- Abstract -->
+  <!-- <section class="section"> -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <h2 class="title is-3">Abstract</h2>
+      <div class="content has-text-justified">
+        <p>
+          In this paper, we propose MoDGS, a new pipeline to render novel-view images in dynamic scenes using only
+          casually captured monocular videos.
+          Previous monocular dynamic NeRF or Gaussian Splatting methods strongly rely on the rapid movement of input
+          cameras to construct multiview consistency but fail to reconstruct dynamic scenes on casually captured input
+          videos whose cameras are static or move slowly.
+        </p>
+        <p>
+          To address this challenging task, MoDGS adopts recent single-view depth estimation methods to guide the
+          learning of the dynamic scene.
+          Then, a novel 3D-aware initialization method is proposed to learn a reasonable deformation field and a new
+          robust depth loss is proposed to guide the learning of dynamic scene geometry.
+          Comprehensive experiments demonstrate that MoDGS is able to render high-quality novel view images of dynamic
+          scenes from just a casually captured monocular video,
+          which outperforms baseline methods by a significant margin.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Comparison -->
+  <!-- Comparison -->
+  <!-- Comparison -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-4">Comparisons with SOTA</h2>
+      <p>
+        Here we display side-by-side videos comparing our method to the most recent Gaussian Methods. <br><br>
+        Select a scene and a baseline method below:
+      </p>
+      <br>
+      <div class="xxx" hight="100px">
+        <div class="tabs-widget">
+          <div class="tabs is-centered">
+            <ul class="is-marginless">
+              <li><a>Coffee-Martini</a></li>
+              <li><a>Sear-Steak</a></li>
+              <li><a>Dead Drift</a></li>
+            </ul>
+          </div>
+          <div class="content has-text-centered is-size-7-mobile">
+            Interactive visualization. Hover or tap to move the split.
+          </div>
+          <div class="tabs-content">
+            <!-- Begin coffee_martini. -->
+            <div>
+              <div class="tabs-widget">
+                <div class="tabs is-centered is-toggle is-toggle-rounded is-small">
+                  <ul class="is-marginless">
+                    <li><a>SC-GS vs. Ours</a></li>
+                    <li><a>D-GS vs. Ours</a></li>
+
+                  </ul>
+                </div>
+                <div class="tabs-content">
+                  Ours method accurately reconstruct the motion and geometry of the dynamic scene,
+                  while baseline methods show artifacts and blurriness.
+
+                  <div class="video-comparison" data-label="SC-GS" data-label2="Ours">
+                    <video class="video" width=400px loop playsinline muted
+                      src="./static\DemoVideos_comparison\CoffeeMartini_sc-gs-VS-ours.mp4"></video>
+                    <canvas></canvas>
+                  </div>
+                  <div class="video-comparison" data-label="D—GS" data-label2="Ours">
+                    <video class="video" width=400px loop playsinline muted
+                      src="./static\DemoVideos_comparison\CoffeeMartini_d-gs-VS-ours.mp4"></video>
+                    <canvas></canvas>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <!-- End coffee_martini. -->
+            <!-- Begin SearSteak. -->
+            <div>
+              <div class="tabs-widget">
+                <div class="tabs is-centered is-toggle is-toggle-rounded is-small">
+                  <ul class="is-marginless">
+                    <li><a>SC-GS vs. Ours</a></li>
+                    <li><a>D-GS vs. Ours</a></li>
+
+                  </ul>
+                </div>
+                <div class="tabs-content">
+                  Ours method accurately reconstruct the motion and geometry of the dynamic scene,
+                  while baseline methods show artifacts and blurriness.
+                  <div class="video-comparison" data-label="SC-GS" data-label2="Ours">
+                    <video class="video" width=400pxloop playsinline muted
+                      src="./static\DemoVideos_comparison\SearSteak_sc-gs-VS-ours.mp4"></video>
+                    <canvas></canvas>
+                  </div>
+                  <div class="video-comparison" data-label="D—GS" data-label2="Ours">
+                    <video class="video" width=400px loop playsinline muted
+                      src="./static\DemoVideos_comparison\SearSteak_d-gs-VS-ours.mp4"></video>
+                    <canvas></canvas>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <!-- End SearSteak. -->
+            <!-- Begin Dead drift. -->
+            <div>
+              <div class="tabs-widget">
+                <div class="tabs is-centered is-toggle is-toggle-rounded is-small">
+                  <ul class="is-marginless">
+                    <li><a>SC-GS vs. Ours</a></li>
+                    <li><a>D-GS vs. Ours</a></li>
+
+                  </ul>
+                </div>
+                <div class="tabs-content">
+                  Ours method accurately reconstruct the motion and geometry of the dynamic scene,
+                  while baseline methods show artifacts and blurriness.
+                  <div class="video-comparison" data-label="SC-GS" data-label2="Ours">
+                    <video class="video" width=400px loop playsinline muted
+                      src="./static\DemoVideos_comparison\DeadDrift_sc-gs-VS-ours.mp4"></video>
+                    <canvas></canvas>
+                  </div>
+                  <div class="video-comparison" data-label="D—GS" data-label2="Ours">
+                    <video class="video" width=400px loop playsinline muted
+                      src="./static\DemoVideos_comparison\DeadDrift_d-gs-VS-ours.mp4"></video>
+                    <canvas></canvas>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <!-- End Dead drift. -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- resutl on Nvidia dataset -->
+  <!-- resutl on Nvidia dataset -->
+  <!-- resutl on Nvidia dataset -->
+
+  <section>
+    <div class="container is-max-desktop">
+      <h2 class="title is-4">Results on Nvidia dataset</h2>
+
+    </div>
+    <!-- <section class="hero is-light is-small"> -->
+    <div class="hero-body">
+      <!-- <div class="column is-full-width has-text-centered"> -->
+      <!-- <div class="container"> -->
+      <div id="results-carousel" class="carousel results-carousel">
+        <!-- balloon1-2-->
+
+
+        <!-- Balloon2-2 -->
+        <div class="item item-steve video-grid">
+          <div class="video-description0">input video</div>
+          <div class="video-description1">renderings</div>
+          <div class="video-description2">estimated monocular depth</div>
+          <div class="video-description3">rendered depth</div>
+
+
+          <!-- <div class="video-description0">input video</div> -->
+          <video poster="" id="steve gt_rgb" autoplay muted loop playsinline height="100%">
+            <source src="static\combined_Video_results\nv\balloon1-2_4in1_output.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- face  -->
+        <div class="item item-steve video-grid">
+          <div class="video-description0">input video</div>
+          <div class="video-description1">renderings</div>
+          <div class="video-description2">estimated monocular depth</div>
+          <div class="video-description3">rendered depth</div>
+
+
+          <!-- <div class="video-description0">input video</div> -->
+          <video poster="" id="steve gt_rgb" autoplay muted loop playsinline height="100%">
+            <source src="static\combined_Video_results\nv\face_4in1_output.mp4" type="video/mp4">
+          </video>
+        </div>
+
+
+
+        <div class="item item-steve video-grid">
+          <div class="video-description0">input video</div>
+          <div class="video-description1">renderings</div>
+          <div class="video-description2">estimated monocular depth</div>
+          <div class="video-description3">rendered depth</div>
+
+
+          <!-- <div class="video-description0">input video</div> -->
+          <video poster="" id="steve gt_rgb" autoplay muted loop playsinline height="100%">
+            <source src="static\combined_Video_results\nv\ballon2-2_4in1_output.mp4" type="video/mp4">
+          </video>
+        </div>
+
+
+        <!--skatting  -->
+        <div class="item item-steve video-grid">
+          <div class="video-description0">input video</div>
+          <div class="video-description1">renderings</div>
+          <div class="video-description2">estimated monocular depth</div>
+          <div class="video-description3">rendered depth</div>
+
+
+          <!-- <div class="video-description0">input video</div> -->
+          <video poster="" id="steve gt_rgb" autoplay muted loop playsinline height="100%">
+            <source src=static\combined_Video_results\nv\skatting_4in1_output.mp4 type="video/mp4">
+          </video>
+        </div>
+        <!--Truck  -->
+        <div class="item item-steve video-grid">
+          <div class="video-description0">input video</div>
+          <div class="video-description1">renderings</div>
+          <div class="video-description2">estimated monocular depth</div>
+          <div class="video-description3">rendered depth</div>
+          <!-- <div class="video-description0">input video</div> -->
+          <video poster="" id="steve gt_rgb" autoplay muted loop playsinline height="100%">
+            <source src=static\combined_Video_results\nv\Truck_4in1_output.mp4 type="video/mp4">
+          </video>
+        </div>
+
+
+
+
+      </div>
+      <!-- </div> -->
+    </div>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- resutl on self made dataset -->
+  <!-- resutl on self made dataset -->
+  <!-- resutl on self made dataset -->
+  <!-- resutl on self made dataset -->
+  <section>
+    <div class="container is-max-desktop">
+      <h2 class="title is-4">Results on in-the-wild video</h2>
+      <!-- <p>
+          Here we display results of our MoDGS On asDyNeRF datet. <br><br>
+          Change the scene by clicking the button below:
+        </p> -->
+    </div>
+
+    <!-- HORIZONTAL VIDEO -->
+    <!-- HORIZONTAL VIDEO -->
+    <!-- HORIZONTAL VIDEO -->
+    <div class="hero-body">
+      <!-- <div class="container"> -->
+      <div id="results-carousel" class="carousel results-carousel">
+
+
+        <!-- yoga17 -->
+        <div class="item item-steve video-grid">
+          <div class="video-description0">input video</div>
+          <div class="video-description1">renderings</div>
+          <div class="video-description2">estimated monocular depth</div>
+          <div class="video-description3">rendered depth</div>
+
+
+          <!-- <div class="video-description0">input video</div> -->
+          <video poster="" id="steve gt_rgb" autoplay muted loop playsinline height="100%">
+            <source src="static\combined_Video_results\selfmade\exercise2_4in1_output.mp4" type="video/mp4">
+          </video>
+        </div>
+        <!-- exercise2  -->
+        <div class="item item-steve video-grid">
+          <div class="video-description0">input video</div>
+          <div class="video-description1">renderings</div>
+          <div class="video-description2">estimated monocular depth</div>
+          <div class="video-description3">rendered depth</div>
+
+
+          <!-- <div class="video-description0">input video</div> -->
+          <video poster="" id="steve gt_rgb" autoplay muted loop playsinline height="100%">
+            <source src="static\combined_Video_results\selfmade\static_cellonado_4in1_output.mp4" type="video/mp4">
+          </video>
+        </div>
+        <!-- cellonado2  -->
+        <div class="item item-steve video-grid">
+          <div class="video-description0">input video</div>
+          <div class="video-description1">renderings</div>
+          <div class="video-description2">estimated monocular depth</div>
+          <div class="video-description3">rendered depth</div>
+
+
+          <!-- <div class="video-description0">input video</div> -->
+          <video poster="" id="steve gt_rgb" autoplay muted loop playsinline height="100%">
+            <source src="static\combined_Video_results\selfmade\yoga17_4in1_output.mp4" type="video/mp4">
+          </video>
+        </div>
+
+
+
+
+
+
+      </div>
+      <!-- </div> -->
+    </div>
+
+    <!-- Vertical VIDEO -->
+    <!-- Vertical VIDEO -->
+    <div class="hero-body">
+      <!-- <div class="container"> -->
+      <div id="results-carousel" class="carousel results-carousel">
+        <!-- deaddrift -->
+        <div class="item item-steve video-grid">
+          <div class="video-description0">input video</div>
+          <div class="video-description1">renderings</div>
+          <div class="video-description2">estimated monocular depth</div>
+          <div class="video-description3">rendered depth</div>
+
+
+          <!-- <div class="video-description0">input video</div> -->
+          <video poster="" id="steve gt_rgb" autoplay muted loop playsinline height="100%">
+            <source src="static\combined_Video_results\selfmade\deaddrift_4in1_output.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- Dog eatting -->
+        <div class="item item-steve video-grid">
+          <div class="video-description0">input video</div>
+          <div class="video-description1">renderings</div>
+          <div class="video-description2">estimated monocular depth</div>
+          <div class="video-description3">rendered depth</div>
+
+
+          <!-- <div class="video-description0">input video</div> -->
+          <video poster="" id="steve gt_rgb" autoplay muted loop playsinline height="100%">
+            <source src="static\combined_Video_results\selfmade\doge_4in1_output.mp4" type="video/mp4">
+          </video>
+        </div>
+
+
+      </div>
+      <!-- </div> -->
+    </div>
+  </section>
+
+
+  <section>
+    <div class="container is-max-desktop">
+      <!-- <h2 class="title is-4">More Results will be uploaded later......</h2> -->
+      <!-- <p>
+          Here we display results of our MoDGS On asDyNeRF datet. <br><br>
+          Change the scene by clicking the button below:
+        </p> -->
+    </div>
+  </section>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+
+      <h2 class="title is-3">Method</h2>
+      <div class="container is-max-desktop">
+        <img src="static\img\fig-overview_00.png" alt="Image description" style="display: block; margin: auto;">
+        <p>
+          <strong>Fig 1.</strong><strong>Overview.</strong> Given a casually captured monocular video of a dynamic
+          scene, MoDGS represents the
+          dynamic scene with a set of Gaussians in a canonical
+          space and a deformation field represented by an MLP network T. To render an image at a specific timestep 𝑡,
+          we deform all the Gaussians by T𝑡 and then use
+          the splatting technique to render images and depth maps. While in training MoDGS, we use a single-view depth
+          estimator GeoWizard [Fu et al. 2024] to
+          estimate a depth map for every frame and compute the rendering loss and an ordinal depth loss to learn MoDGS.
+        </p>
+      </div>
+      <br><br>
+      <div class="container is-max-desktop">
+        <img src="static\img\fig-deform_init1and2_00.png" alt="Image description" style="display: block; margin: auto;">
+        <p>
+          <strong>Fig 2.</strong><strong>(a) Initialization of the deformation field.</strong> We first lift the depth
+          maps and a 2D flow to a
+          3D flow and train the deformation field for initialization.
+          <strong>(b) Initialization of Gaussians in the canonical space.</strong> We use the initialized deformation
+          field to deform all the depth points to the canonical space and
+          downsample these depth points to initialize Gaussians.
+        </p>
+      </div>
+      <br><br>
+      <div class="container is-max-desktop">
+        <img src="static\img\fig-depthoderloss_00.png" alt="Image description" width=50%
+          style="display: block; margin: auto;">
+        <p>
+          <strong>Fig 3.</strong> We show the estimated single-view depth maps at two different timesteps 𝐷𝑡𝑖
+          and 𝐷𝑡𝑗 after normalization to the same scale. Since the
+          single-view depth estimator is not accurate enough, the depth maps are
+          not linear related so the scale normalization does not perfectly align them.
+          However, the order of depth values on three corresponding pixels is stable
+          for these two depth maps, which motivates us to propose an ordinal depth loss for supervision.
+        </p>
+        <p class="title is-6"><span style="color:red;">Please See our video results above ,our rendered depth videos are
+            more consistent and stable than the inputs.</p>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This webpage is based on the project page for <a href="https://nerf-casting.github.io/">NeRF-Casting</a>,
+              <a href="https://camp-nerf.github.io">CamP</a> and <a href="https://nerfies.github.io/">Nerfies</a>. The
+              video
+              comparison tool is from the <a href="https://dorverbin.github.io/refnerf/index.html">Ref-NeRF</a>
+              project.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>
